@@ -1,12 +1,13 @@
 import React from 'react';
 import "./App.css"
-import TokenSubmitPage from './components/TokenSubmitPage';
+// import Registeration from './components/registeration/register.jsx';
+import DoctorInfo from './components/registeration/register.jsx';
 
 const App = () => {
   return (
     <div className="app">
       <div className="background" />
-      <TokenSubmitPage />
+      <DoctorInfo/>
     </div>
   )
 }

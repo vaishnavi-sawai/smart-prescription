@@ -115,7 +115,7 @@ form:textbox {
 }
 
 .background {
-  background: linear-gradient(135deg, #007bec 0%, #ad00ea 100%);
+  background: linear-gradient(135deg, #a0b3e3 0%, #e3a0b3 100%);
   animation: animateGradient 5s infinite;
   background-size: 200% 100%;
   position: fixed;
@@ -297,10 +297,12 @@ form:textbox {
   transition: all 0.2s;
   position: relative;
   top: 0;
+  bottom: 5px;
+  
 }
 
 .ascend:hover {
-  box-shadow: rgba(0, 0, 0, 0.3) 0 8px 30px 0;
+  box-shadow: rgba(159, 146, 243, 0.3) 0 8px 30px 0;
   top: -3px;
 }
 

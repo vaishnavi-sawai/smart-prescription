@@ -58,10 +58,10 @@ contract SmartPrescription {
         return true;
     }
 
-    function addPatient(address _patientId, string memory _firstName)
-        public
-        returns (bool)
-    {
+    function addPatient(
+      address _patientId, 
+      string memory _firstName
+    ) public returns (bool) {
         Patient storage patient = patients[_patientId];
 
         patient.patientId = _patientId;

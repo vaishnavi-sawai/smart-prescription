@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.17;
 
-contract SmartPrescription {
+contract SmartPrescriptionTest1 {
     struct Doctor {
         address doctorId;
         string firstName;

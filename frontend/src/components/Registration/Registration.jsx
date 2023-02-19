@@ -6,6 +6,7 @@ const contractAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
 const Registration = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [defaultAccount, setDefaultAccount] = useState(null);
+  
   const handleRegistration = async (event) => {
     event.preventDefault();
     const data = new FormData(event.target);

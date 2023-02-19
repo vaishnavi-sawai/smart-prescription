@@ -39,12 +39,13 @@ contract SmartPrescriptionTest2 {
     uint256 public prescriptionsCount = 0;
 
     function addDoctor(
-        address _doctorId,
         string memory _firstName,
         string memory _lastName,
         string memory _specialization,
         string memory _qualification
     ) public returns (bool) {
+        address _doctorId = msg.sender;
+
         Doctor storage doctor = doctors[_doctorId];
 
         doctor.doctorId = _doctorId;
@@ -58,13 +59,14 @@ contract SmartPrescriptionTest2 {
         return true;
     }
 
-    function addPatient(
-      address _patientId, 
+    function addPatient( 
       string memory _firstName,
       string memory _lastName,
       string memory _age,
       string memory _gender
     ) public returns (bool) {
+        address _patientId = msg.sender;
+
         Patient storage patient = patients[_patientId];
 
         patient.patientId = _patientId;

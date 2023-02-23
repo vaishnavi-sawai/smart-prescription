@@ -19,7 +19,7 @@ const CreatePrescription = () => {
 
   return (
     <>
-      <div className="backgroundHeader">Create Prescription</div>
+      <div className="background Header">Create Prescription</div>
       <form onSubmit={handleSubmit} className="form">
         <label>Patient Id</label>
         <br></br>

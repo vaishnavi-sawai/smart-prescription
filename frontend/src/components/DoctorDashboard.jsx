@@ -57,8 +57,8 @@ const DoctorDashboard = () => {
         <div class="taskDescription">
           <li>
             <span class="taskKeys">
-              <p>PatientID </p>
-              <p>DoctorId</p>
+              <p>Patient ID</p>
+              <p>Doctor ID</p>
               <p>Condition</p>
               <p>Medication</p>
             </span>

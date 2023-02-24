@@ -2,6 +2,7 @@ import React, { useState, useEffect, setState } from 'react';
 import contractABI from "../abis/contractABI.json";
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
+import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
 const ethers = require("ethers");
 const contractAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
 
@@ -82,7 +83,13 @@ const DoctorDashboard = () => {
               <span class="material-icons-outlined">
                 <LocalHospitalIcon />
               </span>
-              <h1 class="categoryHeader headerMid">Doctor's Info</h1>
+              <h1 class="categoryHeader headerMid">Doctor's Info
+              </h1>
+              <span class="createButton ascend">
+                <span class="material-icons-outlined icon1"><BorderColorOutlinedIcon/></span>
+                <h1>Create Prescription
+                </h1>
+              </span>
             </div>
               <div class="categoryTopper1">
                 <div class="categorySubHeading">DoctorID

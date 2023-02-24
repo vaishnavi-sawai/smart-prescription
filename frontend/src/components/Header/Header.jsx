@@ -20,14 +20,14 @@ const Header = () => {
     <Route exact path = "/">
      <DoctorDashboard/>
      </Route>
-    <Route  path = "/CreatePrescription">
+    <Route exact path = "/CreatePrescription">
     <CreatePrescription/>
     </Route>
-    <Route  path = "/ViewPrescription">
+    <Route exact path = "/ViewPrescription">
     <ViewPrescription/>
     </Route>
     <Route path ="*">
-      <p>This page does not exits, try going back to the Home Page!</p>
+      <h1>This page does not exits, try going back to the Home Page!</h1>
     </Route>
  </Switch>
 </Router>

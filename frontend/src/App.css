@@ -132,7 +132,7 @@ body,
     color: white;
     position: relative;
     width: 80%;
-    height: 60%;
+    height: 100%;
     overflow-y: scroll;
     /* makes scrollable, max height is same top and bottom margin (30px) */
     position: relative;
@@ -161,7 +161,7 @@ body,
 }
 
 .categoryValue {
-  display: inline;
+  display: inline-block;
   padding: 0.5% 2%;
   border-radius: 6px;
   font-size:12px;
@@ -265,7 +265,6 @@ body,
     border-radius: 6px;
     transition: all 0.2s;
     cursor: text;
-    max-width: 240px;
     flex: 1;
 }
 
@@ -365,4 +364,14 @@ body,
 .taskValues {
   display: inline-block;
   margin: 10px;
+}
+
+.categoryTopper1 {
+  padding: 12px 100px;
+  gap: 8px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  font-size: 30px;
+  background-color: #333333;
 }

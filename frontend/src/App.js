@@ -11,10 +11,9 @@ const getAccount = async () =>  await window.ethereum.request({method: 'eth_requ
    console.log(len);
    if(len === 1){
       SetLoading(true);
+      console.log('Registered Succesfully');
    }
 });
-
-
 
 useEffect(()=>{
 getAccount();

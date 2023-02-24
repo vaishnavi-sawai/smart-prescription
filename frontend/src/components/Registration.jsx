@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import contractABI from "../../abis/contractABI.json";
+import contractABI from "../abis/contractABI.json";
 const ethers = require("ethers");
 const contractAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
 

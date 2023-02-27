@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Registration from './components/Registration/Registration';
-import Header from './components/Header/Header';
+import DoctorRegistration from './components/DoctorRegistration';
+import DoctorDashboard from './components/DoctorDashboard';
+import './App.css';
 
 const App = () => {
 const [loading,SetLoading] = useState(false);
@@ -21,7 +22,7 @@ getAccount();
 
  return(
   <>
-  {loading? <Header/> : <Registration/>}
+  {loading? <DoctorDashboard/> : <DoctorRegistration/>}
   </>
  )
 }

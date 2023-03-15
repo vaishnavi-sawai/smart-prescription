@@ -5,6 +5,7 @@ import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 import PostAddOutlinedIcon from '@mui/icons-material/PostAddOutlined';
 import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
 import FindInPageOutlinedIcon from '@mui/icons-material/FindInPageOutlined';
+
 const ethers = require("ethers");
 const contractAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
 
@@ -38,7 +39,8 @@ const DoctorDashboard = () => {
         prescriptionId: String(prescriptionData[0][i]),
         patientId: String(prescriptionData[1][i]),
         condition: prescriptionData[2][i],
-        medication: prescriptionData[3][i]
+        medication: prescriptionData[3][i],
+        // timestamp: prescriptionData[4][i]
       }
       setPrescriptions(prescriptions => [
         ...prescriptions, newItem
@@ -53,10 +55,12 @@ const DoctorDashboard = () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
     const contract = new ethers.Contract(contractAddress, contractABI, signer);
+    const createdTimestamp = new Date().toLocaleString() + "";
     await contract.addPrescription(
       data.get("patientId"),
       data.get("condition"),
-      data.get("medication")
+      data.get("medication"),
+      createdTimestamp
     );
     toggleTab(0);
     setSubmitProcess("Submit");
@@ -71,6 +75,18 @@ const DoctorDashboard = () => {
     fetchDoctorsInfo();
   }, []);
 
+  const StringToList = ({ itemStr }) => {
+    const itemList = itemStr.split(", ");
+    return itemList.map((eachItem) => (
+      <li><big style={{ color: getPastelColor(), fontWeight: "900" }}>&bull;</big> {eachItem}</li>
+    ))
+  }
+
+  const getPastelColor = () => {
+    const hue = Math.floor(Math.random() * 360);
+    const pastel = "hsl(" + hue + ", 100%, 80%)";
+    return pastel;
+  }
 
   const PrescriptionList = () => {
     return prescriptions.map((prescription) => (
@@ -79,24 +95,28 @@ const DoctorDashboard = () => {
           <span class="material-icons-outlined headerMid">
             <AssignmentOutlinedIcon />
           </span>
-          <div class="taskColor"></div>
+          <div style={{
+            width: "4px",
+            borderRadius: "6px",
+            backgroundColor: getPastelColor()
+          }}></div>
           <h2 class="taskHeader">PrescriptionID: {prescription.prescriptionId}</h2>
         </div>
         <div class="taskDescription">
-          <li>
-            <span class="taskKeys">
-              <p>Patient ID</p>
-              <p>Doctor ID</p>
-              <p>Condition</p>
-              <p>Medication</p>
-            </span>
-            <span class="taskValues">
-              <p>: {prescription.patientId}</p>
-              <p>: {doctor.doctorId}</p>
-              <p>: {prescription.condition}</p>
-              <p>: {prescription.medication}</p>
-            </span>
-          </li>
+          <span class="taskKeys">
+            <p>Patient ID</p>
+            <p>Doctor ID</p>
+            <p>Created Timestamp</p>
+            <p>Condition</p>
+            <p>Medication</p>
+          </span>
+          <span class="taskValues">
+            <p>: &emsp;{prescription.patientId}</p>
+            <p>: &emsp;{doctor.doctorId}</p>
+            {/* <p>: &emsp;{prescription.createdTimestamp}</p> */}
+            <p><ul class="inlineList">:<StringToList itemStr={prescription.condition} /></ul></p>
+            <p><ul class="inlineList">:<StringToList itemStr={prescription.medication} /></ul></p>
+          </span>
         </div>
       </div>
     ))
@@ -121,11 +141,11 @@ const DoctorDashboard = () => {
                 <br></br>
                 <label>Condition</label>
                 <br></br>
-                <input class="input" type="text" name="condition" placeholder="Patient's Condition"></input>
+                <input class="input" type="text" name="condition" placeholder="Patient's Condition comma seperated"></input>
                 <br></br>
                 <label>Medication</label>
                 <br></br>
-                <input class="input" type="text" name="medication" placeholder="Prescribed Medication"></input>
+                <input class="input" type="text" name="medication" placeholder="Prescribed Medication comma seperated"></input>
                 <br></br>
                 <br></br>
                 <button class="button ascend secondaryBG" type="submit">{submitProcess}</button>

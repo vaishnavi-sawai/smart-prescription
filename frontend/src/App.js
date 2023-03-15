@@ -5,8 +5,8 @@ import './App.css';
 
 const App = () => {
   return (
-    // <DoctorDashboard/>
-    <DoctorRegistration/>
+    <DoctorDashboard/>
+    // <DoctorRegistration/>
   )
 }
 
